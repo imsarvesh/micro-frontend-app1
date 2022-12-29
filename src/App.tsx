@@ -1,6 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+// @ts-check
+import { Button } from "app2/Button";
 
 function App() {
   return (
@@ -10,14 +13,9 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <React.Suspense fallback="loading">
+          <Button data-testid="helloFriendsButton">Hello Friends 🚀</Button>
+        </React.Suspense>
       </header>
     </div>
   );
