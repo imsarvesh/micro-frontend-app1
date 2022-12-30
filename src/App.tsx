@@ -1,23 +1,19 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import reducer from "./reducer";
+import Todos from "./Todos";
+import { StoreProvider } from "./useStore";
+
+const initialState = {
+  todos: [{ id: 1, name: "Task 1", completed: false }],
+};
 
 // @ts-check
-import { Button } from "app2/Button";
 
-function App() {
+function App({ cb }: { cb?: any }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <React.Suspense fallback="loading">
-          <Button data-testid="helloFriendsButton">Hello Friends 🚀</Button>
-        </React.Suspense>
-      </header>
-    </div>
+    <StoreProvider reducer={reducer} initialState={{ ...initialState, cb }}>
+      <Todos />
+    </StoreProvider>
   );
 }
 
