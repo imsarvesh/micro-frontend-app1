@@ -20,7 +20,7 @@ export default function Todo({ todo }) {
           onChange={handleChange}
           type="checkbox"
         />
-        {todo.completed ? <del>{todo.name}</del> : todo.name}
+        <span>{todo.completed ? <del>{todo.name}</del> : todo.name}</span>
       </label>
     </div>
   );

@@ -1,7 +1,6 @@
 import React from "react";
-
 import { useDispatch } from "./useStore";
-import { Button } from "app2/Button";
+
 export default function Todo() {
   const [newTodo, setNewTodo] = React.useState<string>();
   const dispatch = useDispatch();
@@ -21,11 +20,10 @@ export default function Todo() {
     <form onSubmit={addTodo}>
       <input
         type="text"
-        placeholder="Add New Task"
+        placeholder="Add New"
         onChange={(e) => setNewTodo(e.target.value)}
         value={newTodo}
       />
-      <Button type="submit">Submit</Button>
     </form>
   );
 }

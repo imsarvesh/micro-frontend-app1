@@ -7,7 +7,7 @@ export const StoreProvider = ({ children, reducer, initialState }: any) => {
   const [store, dispatch] = useReducer(reducer, initialState);
 
   // @ts-ignore
-  store?.cb(store?.todos)
+  // store?.cb(store?.todos)
 
   return (
     <dispatchContext.Provider value={dispatch}>

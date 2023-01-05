@@ -10,6 +10,7 @@ export default (state, action) => {
         ],
       };
     case "toggleTodo":
+      debugger
       return {
         ...state,
         todos: state.todos.map((todo) => {

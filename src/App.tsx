@@ -7,11 +7,11 @@ const initialState = {
   todos: [{ id: 1, name: "Task 1", completed: false }],
 };
 
-// @ts-check
 
-function App({ cb }: { cb?: any }) {
+
+function App() {
   return (
-    <StoreProvider reducer={reducer} initialState={{ ...initialState, cb }}>
+    <StoreProvider reducer={reducer} initialState={{ ...initialState }}>
       <Todos />
     </StoreProvider>
   );
