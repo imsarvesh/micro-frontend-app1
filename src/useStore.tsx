@@ -6,8 +6,10 @@ const dispatchContext = createContext<any>({});
 export const StoreProvider = ({ children, reducer, initialState }: any) => {
   const [store, dispatch] = useReducer(reducer, initialState);
 
-  // @ts-ignore
-  // store?.cb(store?.todos)
+  useEffect(() => {
+    // @ts-ignore
+    store?.onStateChange(store?.todos);
+  }, [store]);
 
   return (
     <dispatchContext.Provider value={dispatch}>

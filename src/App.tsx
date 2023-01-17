@@ -1,20 +1,8 @@
 import "./App.css";
-import reducer from "./reducer";
-import Todos from "./Todos";
-import { StoreProvider } from "./useStore";
+import TodoApp from "./TodoApp";
 
-const initialState = {
-  todos: [{ id: 1, name: "Task 1", completed: false }],
-};
-
-
-
-function App() {
+export default function App() {
   return (
-    <StoreProvider reducer={reducer} initialState={{ ...initialState }}>
-      <Todos />
-    </StoreProvider>
-  );
+    <TodoApp />
+  )
 }
-
-export default App;
