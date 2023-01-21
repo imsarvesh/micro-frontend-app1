@@ -7,8 +7,12 @@ export const StoreProvider = ({ children, reducer, initialState }: any) => {
   const [store, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    // @ts-ignore
-    store?.onStateChange(store?.todos);
+    const event = new CustomEvent<any>("STATE", {
+      // @ts-ignore
+      detail: store,
+    });
+
+    window.dispatchEvent(event);
   }, [store]);
 
   return (

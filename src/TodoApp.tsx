@@ -6,13 +6,9 @@ const initialState = {
   todos: [{ id: 1, name: "Task 1", completed: false }],
 };
 
-function TodoApp({ onStateChange }: { onStateChange?: any; }) {
-  
+function TodoApp() {
   return (
-    <StoreProvider
-      reducer={reducer}
-      initialState={{ ...initialState, onStateChange }}
-    >
+    <StoreProvider reducer={reducer} initialState={initialState}>
       <Todos />
     </StoreProvider>
   );
