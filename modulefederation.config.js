@@ -6,7 +6,8 @@ module.exports = {
     app2: "app2@http://localhost:3002/remoteEntry.js",
   },
   exposes: {
-    "./TodosApp": "./src/TodoApp",
+    "./AddTodo": "./src/AddTodo",
+    "./Todos": "./src/Todos",
   },
   filename: "remoteEntry.js",
   shared: {

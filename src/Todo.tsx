@@ -1,22 +1,18 @@
-import React from "react";
-
-import { useDispatch } from "./useStore";
-
 export default function Todo({ todo }) {
-  const dispatch = useDispatch();
-
-  const handleChange = () => {
-    dispatch({
-      type: "toggleTodo",
-      id: todo.id,
+  const handleChange = (event) => {
+    const UPDATE_TODO = new CustomEvent("UPDATE_TODO", {
+      detail: {
+        todo: { ...todo, completed: event.target.checked },
+      },
     });
+    window.dispatchEvent(UPDATE_TODO);
   };
 
   return (
     <div>
       <label>
         <input
-          checked={todo.completed}
+          // checked={todo.completed}
           onChange={handleChange}
           type="checkbox"
         />
